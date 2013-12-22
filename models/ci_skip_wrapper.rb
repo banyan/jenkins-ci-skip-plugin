@@ -1,6 +1,7 @@
+require 'ci_skip/matcher'
+
 class CiSkipWrapper < Jenkins::Tasks::BuildWrapper
   display_name "Enable ci-skip"
-
   attr_accessor :ci_skip
 
   def initialize(attrs)
@@ -16,14 +17,25 @@ class CiSkipWrapper < Jenkins::Tasks::BuildWrapper
         return
       end
 
-      if changeset.getLogs().first.getComment() =~ /\[ci\sskip\]|\[skip\sci\]/
-        listener.info "Commit message is included [ci skip]"
-        build.native.setResult(Java.hudson.model.Result::NOT_BUILT)
-        build.halt("Build is skipped by ci-skip.")
+      logs = changeset.getLogs()
+      latest_commit = logs.get(logs.size - 1)
+      comment = latest_commit.getComment()
+
+      if CiSkip::Matcher.new(comment).skip?
+        listener.info "Build is skipped through commit message."
+        listener.info "Commit: #{latest_commit.getCommitId()}"
+        listener.info "Message: #{comment}"
+        halt(build)
       end
     rescue
       listener.error "Encountered exception when looking commit message: #{$!}"
       listener.error "Allowing build by default."
     end
+  end
+
+  private
+  def halt(build)
+    build.native.setResult(Java.hudson.model.Result::NOT_BUILT)
+    build.halt("Build is skipped by ci-skip.")
   end
 end
