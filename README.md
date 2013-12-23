@@ -45,6 +45,10 @@ $ bundle exec rake
 
 ## Changelog
 
-### Version 0.0.1 (Dec 21, 2013)
+### Version 0.0.2 (Dec 24, 2013)
+
+* Doc, etc...
+
+### Version 0.0.1 (Dec 22, 2013)
 
 * initial release
