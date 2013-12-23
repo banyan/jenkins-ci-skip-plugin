@@ -24,6 +24,11 @@ In the job configuration, check Enable ci-skip.
 
 ![A Screenshot](docs/enable.png)
 
+### How it works
+
+Jenkins is based on works by changeset, so if there is changeset from before build and commit includes `[ci skip]`, then build is skipped as `NOT_BUILT`.
+If there is no changeset, it will be build.
+
 ## Development
 
 ```
