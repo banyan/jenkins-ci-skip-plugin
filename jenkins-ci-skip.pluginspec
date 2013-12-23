@@ -1,7 +1,7 @@
 Jenkins::Plugin::Specification.new do |plugin|
   plugin.name = "ci-skip"
   plugin.display_name = "Ci Skip Plugin"
-  plugin.version = '0.0.1'
+  plugin.version = '0.0.2'
   plugin.description = 'Commits that have [ci skip] anywhere in the commit messages will be skipped.'
 
   # You should create a wiki-page for your plugin when you publish it, see
