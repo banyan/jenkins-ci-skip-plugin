@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 module Jenkins
   module Tasks
     class BuildWrapper

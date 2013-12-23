@@ -7,6 +7,7 @@ group :development do
   gem "jruby-openssl", "~> 0.8.8"
   gem "rake", "~> 10.0.4"
   gem "pry"
+  gem 'coveralls', require: false
 
   # It should be set rspec 3.0.0.beta2 when it is released.
   # https://github.com/rspec/rspec-rails/issues/878#issuecomment-30575316

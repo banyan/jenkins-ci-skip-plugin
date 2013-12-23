@@ -1,6 +1,8 @@
 # Jenkins ci skip plugin
 
 [![Build Status](https://travis-ci.org/banyan/jenkins-ci-skip-plugin.png)](https://travis-ci.org/banyan/jenkins-ci-skip-plugin)
+[![Coverage Status](https://coveralls.io/repos/banyan/jenkins-ci-skip-plugin/badge.png)](https://coveralls.io/r/banyan/jenkins-ci-skip-plugin)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/banyan/jenkins-ci-skip-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Skip making a build for certain push. Just add `[ci skip]` into your commit's message to let Jenkins know, that you do not want to perform build for the next push.
 
@@ -41,7 +43,3 @@ $ bundle exec rake
 ### Version 0.0.1 (Dec 21, 2013)
 
 * initial release
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/banyan/jenkins-ci-skip-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
