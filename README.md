@@ -1,5 +1,7 @@
 # Jenkins ci skip plugin
 
+[![Build Status](https://travis-ci.org/banyan/jenkins-ci-skip-plugin.png)](https://travis-ci.org/banyan/jenkins-ci-skip-plugin)
+
 Skip making a build for certain push. Just add `[ci skip]` into your commit's message to let Jenkins know, that you do not want to perform build for the next push.
 
 Full example:
