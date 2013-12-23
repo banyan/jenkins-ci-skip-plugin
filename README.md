@@ -41,3 +41,7 @@ $ bundle exec rake
 ### Version 0.0.1 (Dec 21, 2013)
 
 * initial release
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/banyan/jenkins-ci-skip-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
