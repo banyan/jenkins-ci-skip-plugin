@@ -19,11 +19,21 @@ class CiSkipWrapper < Jenkins::Tasks::BuildWrapper
 
       logs = changeset.getLogs()
       latest_commit = logs.get(logs.size - 1)
-      comment = latest_commit.getComment()
+      if latest_commit.respond_to?(:getComment)
+        comment = latest_commit.getComment()
+      elsif latest_commit.respond_to?(:getMsg)
+        comment = latest_commit.getMsg()
+      end
 
       if CiSkip::Matcher.new(comment).skip?
         listener.info "Build is skipped through commit message."
-        listener.info "Commit: #{latest_commit.getCommitId()}"
+        if latest_commit.respond_to?(:getCommitId)
+          listener.info "Commit: #{latest_commit.getCommitId()}"
+        elsif latest_commit.respond_to?(:getNode)
+          listener.info "Commit: #{latest_commit.getNode()}"
+        else
+          listener.info "Commit: version/id unknown"
+        end
         listener.info "Message: #{comment}"
         halt(build)
       end
